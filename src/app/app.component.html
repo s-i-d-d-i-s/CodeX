@@ -1,0 +1,18 @@
+<div class="container" *ngIf="hasCred==false" style="display: flex;justify-content: center;">
+    <div class="container m-3">
+      <h2>Credential not found ! Please enter them to start CodeX</h2>
+      <label>Client ID: </label>
+      <input class="form-control" [(ngModel)]="_clientID">
+      <br>
+      <label>Client Secret: </label>
+      <input class="form-control" [(ngModel)]="_clientSecret">
+      <br>
+      <button class="btn btn-success" style="margin:0%;" (click)="setCred()">Submit</button>
+    </div>
+</div>
+<div class="container-fluid" *ngIf="hasCred==true" >
+  
+    <app-navbar></app-navbar>
+    <router-outlet>
+    </router-outlet>    
+</div>
