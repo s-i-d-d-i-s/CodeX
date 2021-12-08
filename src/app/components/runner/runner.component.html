@@ -1,0 +1,28 @@
+<div>
+    <div class="row" style="font-family: monospace;">
+        <div class="col-md-4 p-0">
+            <label class="text-light" >Input: #{{id}}</label>
+            <textarea rows="5" style="width: 100%;" class="terminal dropshadow">{{input}}</textarea>
+        </div>
+        <div class="col-md-4 pl-1 pr-1">
+            <div class="row">
+                <div class="col-md-8">
+                    <label class="text-light">Output: #{{id}}</label>
+                </div>
+                <div class="col-md-4" *ngIf="verd!=0">
+                    <label *ngIf="verd==1" class="text-light" style="background-color: green;">AC</label>
+                    <label *ngIf="verd==2" class="text-light" style="background-color: red;">WA</label>
+                    <label *ngIf="verd==3" class="text-light" style="background-color: yellow;">CE</label>
+                    <label *ngIf="verd==4" class="text-light" style="background-color: orange;">RE</label>
+                </div>
+            </div>
+            
+            
+            <textarea rows="5" style="width: 100%;" class="terminal dropshadow"></textarea>
+        </div>
+        <div class="col-md-4 p-0">
+            <label class="text-light">Expected: #{{id}}</label>
+            <textarea rows="5" style="width: 100%;" class="terminal dropshadow">{{expected}}</textarea>
+        </div>
+    </div>
+</div>

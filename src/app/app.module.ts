@@ -9,6 +9,7 @@ import { CodeEditorModule } from '@ngstack/code-editor';
 import { TemplateComponent } from './components/template/template.component';
 import { LibraryComponent } from './components/library/library.component';
 import { AppRoutingModule } from './angular-routing';
+import { RunnerComponent } from './components/runner/runner.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AppRoutingModule } from './angular-routing';
     NavbarComponent,
     EditorComponent,
     TemplateComponent,
-    LibraryComponent
+    LibraryComponent,
+    RunnerComponent
   ],
   imports: [
     BrowserModule,

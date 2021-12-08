@@ -1,0 +1,13 @@
+.terminal{
+    background-color: black;
+    color: white;
+    font-size: 8;
+    font-family:monospace;
+    border: black;
+    resize: none;
+}
+
+
+.dropshadow{
+    box-shadow: 1px 1px 2px black !important;
+}

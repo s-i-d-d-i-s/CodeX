@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CacheService } from 'src/app/services/cache.service';
 import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
@@ -9,12 +10,17 @@ import { DatabaseService } from 'src/app/services/database.service';
 export class NavbarComponent implements OnInit {
 
   tab=0;
-  constructor(private db: DatabaseService) { }
+  constructor(private db: DatabaseService,private cache:CacheService) { }
 
   ngOnInit(): void {
   }
   resetCreds(){
     this.db.resetCredentials();
+    location.reload();
+  }
+  resetAutosave(){
+    this.cache.resetAutosavedCode();
+    this.cache.resetAutoSavedRunner();
     location.reload();
   }
 }

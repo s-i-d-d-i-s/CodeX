@@ -1,16 +1,30 @@
 <div class="row mt-3" >
-  <div class="col-md-8" >
+  <div class="col-md-7" >
+    <div style="box-shadow: 1px 1px 8px black;">
       <ngs-code-editor
       [theme]="theme"
       [codeModel]="model"
       [options]="options"
       (valueChanged)="onCodeChanged($event)">
       </ngs-code-editor >
-  </div>
-  <div class="col-md-4" >
-      <div class="container" style="display: flex;justify-content: center;">
-          
       </div>
+  </div>
+  <div class="col-md-5 " >
+      <textarea rows="5" style="width: 100%;" #textarea readonly class="terminal" [scrollTop]="textarea.scrollHeight">{{terminalText}}</textarea>
+      <hr>
+      <div class="row">
+        <div class="col-md-4">
+          <button class="btn btn-info"  style="background-color:#3fa9d187 !important;" (click)="addRunner()">Add Runner</button>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-success" style="background-color:#00c8517d !important;" (click)="runTests()">Run Tests</button>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-warning" style="background-color:#ffbb339c !important;"(click)="copyCode()">Copy Code</button>
+        </div>
+      </div>      
+      <hr>
+      <app-runner *ngFor="let x of runners;" [id]="x['id']" [code]="code" [input]="x['input']" [expected]="x['expected']" ></app-runner>
   </div>
 </div>
 

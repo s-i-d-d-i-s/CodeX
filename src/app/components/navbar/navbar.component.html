@@ -1,8 +1,8 @@
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+<nav class="navbar navbar-expand-lg navbar-dark dark-color">
 
     <!-- Navbar brand -->
-    <a class="navbar-brand" href="#">CodeX</a>
+    <a class="navbar-brand" routerLink="/">CodeX</a>
   
     <!-- Collapse button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -26,11 +26,15 @@
         <li class="nav-item" [ngClass]="{'active':tab==2}">
           <a class="nav-link" routerLink="/lib" (click)="tab=2">Library</a>
         </li>
+
+        <li class="nav-item" >
+          <a class="nav-link" (click)="resetAutosave()">Reset Editor</a>
+        </li>
   
         <!-- Dropdown -->
         <li class="nav-item dropdown" [ngClass]="{'active':tab==3}">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false" (click)="tab=3">Dropdown</a>
+            aria-haspopup="true" aria-expanded="false" (click)="tab=3">Settings</a>
           <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
@@ -38,9 +42,8 @@
           </div>
         </li>
   
+
       </ul>
-      <!-- Links -->
-  
     </div>
     <!-- Collapsible content -->
   

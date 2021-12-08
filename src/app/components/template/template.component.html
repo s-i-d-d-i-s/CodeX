@@ -1,11 +1,13 @@
 <div class="row mt-3" >
     <div class="col-md-8" >
+        <div class="dropshadow">
         <ngs-code-editor
         [theme]="theme"
         [codeModel]="model"
         [options]="options"
         (valueChanged)="onCodeChanged($event)">
         </ngs-code-editor >
+    </div>
     </div>
     <div class="col-md-4" >
         <div class="container" style="display: flex;justify-content: center;">
