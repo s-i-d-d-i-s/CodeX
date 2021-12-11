@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CodeModel } from '@ngstack/code-editor';
+import { Runner } from 'src/app/models/runner.model';
 import { CacheService } from 'src/app/services/cache.service';
 import { DatabaseService } from 'src/app/services/database.service';
+
 
 @Component({
   selector: 'app-editor',
@@ -11,7 +13,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 export class EditorComponent implements OnInit {
   
   terminalText = '';
-  runners: {'id':number;'input':string;'expected':string;}[];
+  runners: Runner[];
   constructor(private db:DatabaseService,private cache:CacheService) {
     this.writeTerminal('IDE Loaded!')
     this.runners = [];
@@ -60,21 +62,42 @@ export class EditorComponent implements OnInit {
     this.terminalText += "~ % "+terminalTextPassed+'\n';
   }
   addRunner(){
-    var id = this.runners.length+1;
-    var ip = 'foo';
-    var exp = 'boo';
+    var id = this.runners.length>0?this.runners[this.runners.length-1]['id']+1:1;
     this.runners.push({
       'id':id,
-      'input':ip,
-      'expected':exp
+      'input':'',
+      'output':'',
+      'expected':'',
+      'runIt':false,
     });
     this.writeTerminal("Added Runner #"+id);
     this.cache.setAutoSavedRunner(this.runners);
   }
   runTests(){
-    this.writeTerminal("Running on tests....");
+    this.writeTerminal("Running on tests....");   
+    for(let i=0;i<this.runners.length;i++){
+      this.runners[i]['runIt']=true;
+    }
   }
   copyCode(){
     this.writeTerminal("Source Code Copied !");
+  }
+
+  removeIt(ele:{'id':number;'input':string;'expected':string;}){
+    this.runners = this.runners.filter(obj => obj != ele);
+    this.writeTerminal("Removed Runner #"+ele['id']);
+    this.cache.setAutoSavedRunner(this.runners);    
+  }
+
+  finishedRunning(event:Runner,id:number){
+    for(let i=0;i<this.runners.length;i++){
+      if(this.runners[i]['id']==id){
+        this.runners[i]=event;
+        this.runners[i]['runIt']=false;
+        
+      }
+    }
+    console.log("Stopping Runnner #"+id+", Event: "+event);
+    this.cache.setAutoSavedRunner(this.runners);
   }
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -10,6 +11,8 @@ import { TemplateComponent } from './components/template/template.component';
 import { LibraryComponent } from './components/library/library.component';
 import { AppRoutingModule } from './angular-routing';
 import { RunnerComponent } from './components/runner/runner.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { RunnerComponent } from './components/runner/runner.component';
     BrowserModule,
     FormsModule,
     CodeEditorModule.forRoot(),
+    SweetAlert2Module.forRoot(),
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

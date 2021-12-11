@@ -47,7 +47,6 @@ export class TemplateComponent implements OnInit {
   setTemplate(){
     this.db.setTemplateCPP(this.code);
     this.model.value = this.db.getTemplateCPP();
-    alert('Done!');
     location.reload();  
   }
 }

@@ -24,7 +24,7 @@
         </div>
       </div>      
       <hr>
-      <app-runner *ngFor="let x of runners;" [id]="x['id']" [code]="code" [input]="x['input']" [expected]="x['expected']" ></app-runner>
+      <app-runner *ngFor="let x of runners;" [runIt]="x['runIt']" [id]="x['id']" [code]="code" [input]="x['input']" [expected]="x['expected']" [output]="x['output']" (delete)="removeIt(x);" (update)="finishedRunning($event,x['id'])"></app-runner>
   </div>
 </div>
 

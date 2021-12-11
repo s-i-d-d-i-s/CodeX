@@ -2,7 +2,7 @@
     <div class="row" style="font-family: monospace;">
         <div class="col-md-4 p-0">
             <label class="text-light" >Input: #{{id}}</label>
-            <textarea rows="5" style="width: 100%;" class="terminal dropshadow">{{input}}</textarea>
+            <textarea rows="5" style="width: 100%;" class="terminal dropshadow" [(ngModel)]="input" (change)="updateRunner()"></textarea>
         </div>
         <div class="col-md-4 pl-1 pr-1">
             <div class="row">
@@ -18,11 +18,12 @@
             </div>
             
             
-            <textarea rows="5" style="width: 100%;" class="terminal dropshadow"></textarea>
+            <textarea rows="5" style="width: 100%;" class="terminal dropshadow" [(ngModel)]="output" (change)="updateRunner()"></textarea>
         </div>
         <div class="col-md-4 p-0">
             <label class="text-light">Expected: #{{id}}</label>
-            <textarea rows="5" style="width: 100%;" class="terminal dropshadow">{{expected}}</textarea>
+            <button class="btn-danger float-right" (click)="deleteRunner()">Del</button>
+            <textarea rows="5" style="width: 100%;" class="terminal dropshadow" [(ngModel)]="expected" (change)="updateRunner()"></textarea>
         </div>
     </div>
 </div>

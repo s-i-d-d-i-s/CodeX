@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Runner } from '../models/runner.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class CacheService {
     return true;
   }
 
-  getAutoSavedRunner():{'id':number;'input':string;'expected':string;}[]{
+  getAutoSavedRunner():Runner[]{
     return JSON.parse(localStorage.getItem('autoSaveRunner')!);
   }
 
@@ -37,7 +38,7 @@ export class CacheService {
     localStorage.setItem('hasAutosave','true');
   }
 
-  setAutoSavedRunner(runners:{'id':number;'input':string;'expected':string;}[]){
+  setAutoSavedRunner(runners:Runner[]){
      localStorage.setItem('autoSaveRunner',JSON.stringify(runners));
      localStorage.setItem('hasAutoSaveRunner','true');
   }

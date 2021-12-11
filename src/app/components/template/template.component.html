@@ -10,9 +10,10 @@
     </div>
     </div>
     <div class="col-md-4" >
-        <div class="container" style="display: flex;justify-content: center;">
-            <button class="btn btn-success" (click)="setTemplate()"> Save !</button>
-            <button class="btn btn-warning" (click)="resetTemplate()"> Reset Template</button>
+        <div class="container" style="display: flex;justify-content: center;">            
+            <button class="btn btn-success"  [swal]="['Template Saved']" (confirm)="setTemplate()"> Save !</button>
+            <button class="btn btn-warning"   [swal]="{ title: 'Reset Template', showDenyButton: true, denyButtonText: 'Don\'t reset'}"
+            (confirm)="resetTemplate()" (deny)="false"> Reset Template</button>
         </div>
     </div>
 </div>
